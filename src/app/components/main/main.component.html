@@ -1,0 +1,57 @@
+<div class="body">
+    <div class="body-left">
+        <h2>Notification History</h2>
+        <!-- List the recognitions that the user have received -->
+        <div *ngIf="displayRecognition">
+            <h3>You received recognitions!</h3>
+            <ul *ngFor="let recognition of recognitions">
+                <button mat-flat-button (click)="onClickMyRecognition(recognition)">
+                    {{recognition.EntryDate}}, Sent From: {{recognition.SentFromName}}
+                </button>
+            </ul>
+        </div>
+        <div *ngIf="!displayRecognition">
+            <h3>You haven't received recognitions yet.</h3>
+        </div>
+        <!-- List the recognitions that the user has sent before -->
+        <mat-divider></mat-divider>
+        <div *ngIf="displayPreviousRecognition">
+            <h3>Here are the recognitions you have sent</h3>
+            <ul *ngFor="let recognition of previousRecognitions">
+                <button mat-flat-button (click)="onClickMyRecognition(recognition)">
+                    {{recognition.EntryDate}}, Sent to: {{recognition.SentToName}}
+                </button>
+            </ul>
+        </div>
+        <div *ngIf="!displayPreviousRecognition">
+            <h3>You haven't received recognitions yet.</h3>
+        </div>
+        <!-- Supervisors only: List the recognitions that their team members have sent -->
+        <div *ngIf="displaySupervisorMenu">
+            <mat-divider></mat-divider>
+            <h3>See recognitions in your team.</h3>
+            <ul *ngFor="let notification of notifications">
+                <button mat-flat-button (click)="onClickMyRecognition(notification)">
+                    {{notification.EntryDate}}, Sent From: {{notification.SentFromName}}
+                </button>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="body-right">
+        <h2>My Shortcuts</h2>
+        <button mat-raised-button (click)="onClickRecognition()">
+            <mat-icon>send</mat-icon>
+            Send a Recognition!
+        </button>
+        <button mat-raised-button>
+            <mat-icon>today</mat-icon>
+            PTO Request
+        </button>
+        <button mat-raised-button>
+            <mat-icon>access_time</mat-icon>
+            Submit Timesheet
+        </button>
+    </div>
+</div>

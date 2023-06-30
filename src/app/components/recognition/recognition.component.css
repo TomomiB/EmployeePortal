@@ -1,0 +1,27 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+.selector {
+    width: 100%
+}
+
+.spacer {
+    flex: auto;
+}
+
+mat-card {
+    min-height: 350px;
+}
+
+h3 {
+    padding: 1em;
+}

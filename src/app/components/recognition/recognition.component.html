@@ -1,0 +1,45 @@
+<div class="body">
+    <mat-card>
+        <mat-card-header>
+            <button mat-button (click)="onBack()"><mat-icon>arrow_back</mat-icon></button>
+            <h2>Submit Recognition</h2>
+            <span class="spacer"></span>
+            <button mat-raised-button color="primary" (click)="onSubmit()"
+                [disabled]="!recognitionForm.valid">Submit</button>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <form class="card-content" [formGroup]="recognitionForm" (ngSubmit)="onSubmit()"
+                *ngIf="submitted==='not-submitted'">
+                <div class="selector">
+                    <mat-form-field>
+                        <mat-label for="rec-name">Name</mat-label>
+                        <mat-select id="rec-name" formControlName="name">
+                            <mat-option *ngFor="let employee of appCache.employees"
+                                value="{{employee.Id}}">{{employee.Name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="selector">
+                    <mat-form-field>
+                        <mat-label for="rec-category">Category</mat-label>
+                        <mat-select id="rec-category" formControlName="category">
+                            <mat-option value="TeamPlayer">Team Player</mat-option>
+                            <mat-option value="GreatIdea">Great Idea</mat-option>
+                            <mat-option value="AboveAndBeyond">Going Above and Beyond</mat-option>
+                            <mat-option value="Leadership">Leadership</mat-option>
+                            <mat-option value="ThankYou">Thank You</mat-option>
+                            <mat-option value="other">Other</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <mat-form-field>
+                    <mat-label>Message</mat-label>
+                    <textarea matInput id="rec-message" formControlName="message" maxlength="500"></textarea>
+                </mat-form-field>
+            </form>
+            <h3 *ngIf="submitted==='processing'">Submitting...</h3>
+            <h3 *ngIf="submitted==='submitted'">{{systemMessage}}</h3>
+        </mat-card-content>
+    </mat-card>
+</div>

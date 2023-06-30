@@ -1,0 +1,32 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.sign-out {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.toolbar-spacer {
+    flex: auto;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.toolbar-welcome {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,28 @@
+.body {
+    display: flex;
+    padding: 1em;
+}
+
+.body-left {
+    flex: 2;
+    justify-content: center;
+}
+
+.body-right {
+    flex: 1;
+    justify-content: center;
+}
+
+.notification-button {
+    padding: 2em !important;
+}
+
+button {
+    display: block;
+    width: 80%;
+    margin-bottom: 1em;
+}
+
+h2 {
+    display: block;
+}
